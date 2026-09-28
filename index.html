@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Bumble • 1 Year Anniversary 💛</title>
+  <meta name="theme-color" content="#FFC629">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐝</text></svg>">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient background glow for desktop / large screens -->
+  <div class="desktop-bg-decorations" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="floating-honeycombs" id="honeycombsBg"></div>
+  </div>
+
+  <!-- App Viewport Container (Native Mobile Look & Feel) -->
+  <div class="app-container" id="appContainer">
+    
+    <!-- Splash / Loader Screen -->
+    <div class="splash-screen" id="splashScreen">
+      <div class="splash-content">
+        <div class="splash-bee-wrapper">
+          <div class="splash-bee">🐝</div>
+          <div class="splash-radar-pulse"></div>
+          <div class="splash-radar-pulse pulse-delay"></div>
+        </div>
+        <div class="splash-logo">bumble</div>
+        <div class="splash-badge">1 Year Anniversary Edition</div>
+        <p class="splash-status" id="splashStatus">Searching for the love of my life...</p>
+        <div class="splash-loader-bar">
+          <div class="splash-loader-progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="app-header">
+      <button class="nav-btn" id="profileNavBtn" title="Our Love Story Profile" aria-label="Profile">
+        <div class="nav-avatar-wrap">
+          <img src="images/avatar_her.jpg" alt="Profile" class="nav-avatar-img" id="navAvatarImg">
+          <span class="nav-badge-ring"></span>
+        </div>
+      </button>
+
+      <div class="header-logo-group">
+        <div class="bumble-logo">bumble</div>
+        <span class="anniversary-pill">
+          <span class="honey-icon">🍯</span> 365 DAYS
+        </span>
+      </div>
+
+      <div class="header-actions">
+        <button class="nav-btn music-btn" id="musicToggleBtn" title="Toggle Romantic Music" aria-label="Music">
+          <span class="music-icon" id="musicIcon">🎵</span>
+          <span class="sound-wave" id="soundWave">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
+
+        <button class="nav-btn chat-nav-btn" id="chatNavBtn" title="Bumble Messages" aria-label="Chat">
+          <svg class="nav-svg-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+          </svg>
+          <span class="unread-dot" id="unreadBadge">1</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Card Deck Swiping Area -->
+    <main class="deck-container" id="deckContainer">
+      <!-- Story / Deck Progress Dots at top of current card -->
+      <div class="deck-progress-indicators" id="deckProgress">
+        <!-- Rendered dynamically for 5 cards -->
+      </div>
+
+      <!-- Card Stack Canvas -->
+      <div class="card-stack" id="cardStack">
+        <!-- Dynamic Cards inserted here via script.js -->
+      </div>
+
+      <!-- Playful Bumble Toast Banner -->
+      <div class="bumble-toast" id="bumbleToast">
+        <span class="toast-icon">⚠️</span>
+        <span class="toast-message" id="toastMessage">Unmatching disabled! You're stuck with me forever 🥰</span>
+      </div>
+    </main>
+
+    <!-- Bottom Action Controls (Bumble Dock) -->
+    <footer class="app-dock">
+      <!-- Rewind Button -->
+      <button class="action-btn btn-rewind" id="btnRewind" title="Rewind previous card" aria-label="Rewind">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 4v6h6"></path>
+          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+        </svg>
+      </button>
+
+      <!-- Pass / Nope Button (Playful) -->
+      <button class="action-btn btn-pass" id="btnPass" title="Swipe Left (Try if you dare!)" aria-label="Pass">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- SuperSwipe Button -->
+      <button class="action-btn btn-superswipe" id="btnSuperSwipe" title="SuperSwipe ⭐️" aria-label="SuperSwipe">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+      </button>
+
+      <!-- Like / Swipe Right Button -->
+      <button class="action-btn btn-like" id="btnLike" title="Swipe Right 💛" aria-label="Like">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </button>
+
+      <!-- Compliment Button -->
+      <button class="action-btn btn-compliment" id="btnCompliment" title="Send Compliment 💬" aria-label="Compliment">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM17 11h-4v4h-2v-4H7V9h4V5h2v4h4v2z"/>
+        </svg>
+      </button>
+    </footer>
+
+    <!-- Personalize Floating Settings Button -->
+    <button class="settings-trigger-btn" id="settingsTriggerBtn" title="Customize Names & Date">
+      ⚙️
+    </button>
+  </div>
+
+  <!-- ================= MODALS & OVERLAYS ================= -->
+
+  <!-- 1. "IT'S A MATCH!" Celebration Screen Modal -->
+  <div class="match-overlay" id="matchModal">
+    <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+    
+    <div class="match-content">
+      <div class="match-header">
+        <div class="match-bumble-badge">🐝 BUMBLE ANNIVERSARY MATCH</div>
+        <h1 class="match-title">It's a Match!</h1>
+        <p class="match-subtitle">You and <span class="partner-name">Veer</span> swiped right 365 days ago</p>
+      </div>
+
+      <!-- Overlapping Profile Avatars -->
+      <div class="match-avatars-wrap">
+        <div class="match-avatar-circle left-avatar">
+          <img src="images/avatar_her.jpg" alt="Her" id="matchAvatarHer">
+          <span class="avatar-tag her-tag">You 💛</span>
+        </div>
+        
+        <div class="match-heart-center">
+          <div class="heart-pulse-glow"></div>
+          <span class="center-heart-icon">💖</span>
+          <span class="center-year-text">1 YEAR</span>
+        </div>
+
+        <div class="match-avatar-circle right-avatar">
+          <img src="images/avatar_him.jpg" alt="Veer" id="matchAvatarHim">
+          <span class="avatar-tag him-tag">Veer ✨</span>
+        </div>
+      </div>
+
+      <!-- Relationship Milestones Grid -->
+      <div class="match-stats-card">
+        <div class="stat-item">
+          <span class="stat-number">365</span>
+          <span class="stat-label">Days In Love</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Compatibility</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Forever To Go</span>
+        </div>
+      </div>
+
+      <!-- Match Action Buttons -->
+      <div class="match-action-buttons">
+        <button class="match-primary-btn" id="openLoveLetterBtn">
+          <span>💌 Read My Love Letter</span>
+        </button>
+
+        <button class="match-secondary-btn" id="openChatFromMatchBtn">
+          <span>💬 Open Our Bumble Chat</span>
+        </button>
+
+        <button class="match-gallery-btn" id="openGalleryFromMatchBtn">
+          <span>📸 View All 13 Memories</span>
+        </button>
+
+        <button class="match-text-btn" id="replayDeckBtn">
+          <span>🔄 Swipe Memories Again</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Heartfelt Love Letter Modal -->
+  <div class="popup-modal" id="loveLetterModal">
+    <div class="modal-backdrop" id="letterBackdrop"></div>
+    <div class="modal-card letter-card">
+      <button class="modal-close-btn" id="closeLetterBtn">&times;</button>
+      
+      <div class="letter-stamp-seal">
+        <span class="wax-seal">🐝</span>
+        <div class="postmark">BUMBLE • 365 DAYS TOGETHER</div>
+      </div>
+
+      <div class="letter-body">
+        <h2 class="letter-heading">To My Favorite Girl In The World,</h2>
+        
+        <div class="letter-text" id="letterContent">
+          <p>Exactly 365 days ago, you popped up on my Bumble feed. I swiped right without a second thought, but I had no idea that one simple swipe was about to change my entire universe.</p>
+          
+          <p>From your very first message to all the endless late-night talks, lazy Sunday cuddles, swimming dates, silly photobooth kiss strips, and goofy cab selfies—every moment with you has felt like a dream I never want to wake up from.</p>
+          
+          <p>Thank you for making the first move. Thank you for filling my life with your infectious laughter, your kindness, your warmth, and your unconditional love. You make every ordinary day feel like the sweetest adventure.</p>
+          
+          <p>If Bumble gave me another 1,000 profiles, I’d still search for you in every single one. Here's to 365 unforgettable days, and to a lifetime more of loving you.</p>
+          
+          <p class="letter-signature">Forever & always yours,<br><span class="author-name">Veer</span> 💛</p>
+        </div>
+      </div>
+
+      <div class="letter-footer">
+        <button class="bumble-pill-btn" id="btnShareKiss">Send Her A Kiss 💋</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Authentic Bumble Chat Modal -->
+  <div class="popup-modal" id="chatModal">
+    <div class="modal-backdrop" id="chatBackdrop"></div>
+    <div class="modal-card chat-card">
+      <!-- Chat Header -->
+      <div class="chat-header">
+        <button class="chat-back-btn" id="closeChatBtn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+          </svg>
+        </button>
+        <div class="chat-user-info">
+          <div class="chat-avatar-wrap">
+            <img src="images/avatar_him.jpg" alt="Veer" class="chat-avatar">
+            <span class="online-indicator"></span>
+          </div>
+          <div>
+            <div class="chat-user-name">Veer <span class="verified-check">✓</span></div>
+            <div class="chat-user-status">Active now • 365 Days Matched</div>
+          </div>
+        </div>
+        <button class="chat-call-btn" id="chatCallBtn" title="Call Him">📞</button>
+      </div>
+
+      <!-- Bumble First Move Banner -->
+      <div class="chat-first-move-box">
+        <span class="bee-badge">🐝</span>
+        <span>You made the first move on Bumble 1 year ago! It was the best message he ever received.</span>
+      </div>
+
+      <!-- Chat Messages Scroll Area -->
+      <div class="chat-messages-body" id="chatMessages">
+        <div class="chat-date-chip">365 Days Ago</div>
+        
+        <div class="message msg-received">
+          <div class="bubble">Hey stranger :) your smile caught my eye! ✨</div>
+          <span class="msg-time">Day 1</span>
+        </div>
+
+        <div class="message msg-sent">
+          <div class="bubble">And you just made my whole year! Best swipe ever 💛</div>
+          <span class="msg-time">Day 1</span>
+        </div>
+
+        <div class="chat-date-chip">Fast Forward To Today</div>
+
+        <div class="message msg-sent">
+          <div class="bubble">Happy 1-Year Anniversary my love! I still get butterflies every time you smile at me 🥺💕</div>
+          <span class="msg-time">Just now</span>
+        </div>
+
+        <div class="message msg-sent voice-note-msg">
+          <div class="bubble voice-bubble" id="voiceNoteBubble">
+            <button class="voice-play-btn" id="voicePlayBtn">▶</button>
+            <div class="voice-waveform">
+              <span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span>
+            </div>
+            <span class="voice-duration">0:36</span>
+          </div>
+          <span class="voice-label">Voice note: "I love you more than everything..."</span>
+        </div>
+      </div>
+
+      <!-- Chat Input Field -->
+      <div class="chat-input-bar">
+        <input type="text" id="chatInputField" placeholder="Reply to Veer..." autocomplete="off">
+        <button class="chat-send-btn" id="chatSendBtn" aria-label="Send Message">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Memory Gallery Modal -->
+  <div class="popup-modal" id="galleryModal">
+    <div class="modal-backdrop" id="galleryBackdrop"></div>
+    <div class="modal-card gallery-card">
+      <button class="modal-close-btn" id="closeGalleryBtn">&times;</button>
+      <div class="gallery-header">
+        <span class="gallery-badge">📸 OUR 1-YEAR HIGHLIGHT REEL</span>
+        <h2>Our 13 Favorite Bumble Memories</h2>
+        <p>13 moments that defined our year together</p>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Compliment Pop-up Modal -->
+  <div class="popup-modal" id="complimentModal">
+    <div class="modal-backdrop" id="complimentBackdrop"></div>
+    <div class="modal-card compliment-card">
+      <button class="modal-close-btn" id="closeComplimentBtn">&times;</button>
+      <div class="compliment-icon-bubble">💬💛</div>
+      <h3 class="compliment-title">Bumble Compliment</h3>
+      <p class="compliment-text" id="complimentText">"You look absolutely breathtaking in this picture, and even more so in person!"</p>
+      <button class="bumble-pill-btn" id="closeComplimentActionBtn">Aww, thank you! 🥰</button>
+    </div>
+  </div>
+
+  <!-- 6. Playful Rejection Alert (When she tries to swipe left) -->
+  <div class="rejection-dialog" id="rejectionDialog">
+    <div class="dialog-content">
+      <div class="dialog-emoji">🙅‍♂️🚫</div>
+      <h3 class="dialog-title">Bumble Protocol Alert!</h3>
+      <p class="dialog-desc" id="rejectionDesc">Swipe Left is permanently disabled! Once matched with Veer, you are bonded for eternity.</p>
+      <button class="dialog-confirm-btn" id="dialogAcceptBtn">Fine, I'll Swipe Right! ❤️</button>
+    </div>
+  </div>
+
+  <!-- 7. Personalize / Settings Modal (So Veer can customize names & letter) -->
+  <div class="popup-modal" id="settingsModal">
+    <div class="modal-backdrop" id="settingsBackdrop"></div>
+    <div class="modal-card settings-card">
+      <button class="modal-close-btn" id="closeSettingsBtn">&times;</button>
+      <div class="settings-header">
+        <span class="badge-icon">⚙️</span>
+        <h3>Personalize Your Website</h3>
+        <p>Customize her name, your anniversary date & message</p>
+      </div>
+
+      <form id="settingsForm" class="settings-form">
+        <div class="form-group">
+          <label for="cfgHerName">Her Name / Nickname</label>
+          <input type="text" id="cfgHerName" placeholder="e.g. Kashish, Khushi, Cutie..." required>
+        </div>
+
+        <div class="form-group">
+          <label for="cfgHisName">Your Name</label>
+          <input type="text" id="cfgHisName" value="Veer" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cfgAnniversaryDate">Anniversary / Meet Date</label>
+          <input type="text" id="cfgAnniversaryDate" placeholder="e.g. September 28, 2023 or 1 Year Ago">
+        </div>
+
+        <div class="form-group">
+          <label for="cfgLetter">Love Letter Message</label>
+          <textarea id="cfgLetter" rows="5" placeholder="Write your heartfelt note here..."></textarea>
+        </div>
+
+        <button type="submit" class="bumble-pill-btn">Save & Update Website 💛</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Confetti library for high-performance celebration confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
