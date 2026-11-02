@@ -3,401 +3,539 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Bumble • 1 Year Anniversary 💛</title>
-  <meta name="theme-color" content="#FFC629">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐝</text></svg>">
-  
+  <title>I'm So Sorry, Kavya 🥺❤️ | Forgive Me?</title>
+  <meta name="theme-color" content="#FFB5B5">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩹</text></svg>">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Ambient background glow for desktop / large screens -->
-  <div class="desktop-bg-decorations" aria-hidden="true">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-    <div class="floating-honeycombs" id="honeycombsBg"></div>
+
+  <!-- Ambient background glow & floating particles -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+    <div class="floating-items" id="floatingItems"></div>
   </div>
 
-  <!-- App Viewport Container (Native Mobile Look & Feel) -->
-  <div class="app-container" id="appContainer">
-    
-    <!-- Splash / Loader Screen -->
-    <div class="splash-screen" id="splashScreen">
-      <div class="splash-content">
-        <div class="splash-bee-wrapper">
-          <div class="splash-bee">🐝</div>
-          <div class="splash-radar-pulse"></div>
-          <div class="splash-radar-pulse pulse-delay"></div>
-        </div>
-        <div class="splash-logo">bumble</div>
-        <div class="splash-badge">1 Year Anniversary Edition</div>
-        <p class="splash-status" id="splashStatus">Searching for the love of my life...</p>
-        <div class="splash-loader-bar">
-          <div class="splash-loader-progress"></div>
-        </div>
+  <!-- Top Floating Status Bar -->
+  <header class="top-nav">
+    <div class="nav-content">
+      <div class="nav-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">Emergency Peace Treaty for Kavya 🕊️</span>
+      </div>
+      <div class="nav-actions">
+        <button class="sound-toggle-btn" id="soundToggleBtn" aria-label="Toggle Sound Effects" title="Sound Effects Toggle">
+          <span class="sound-icon" id="soundIcon">🔊</span>
+          <span class="sound-label">Sound FX</span>
+        </button>
+        <button class="music-toggle-btn" id="musicToggleBtn" aria-label="Toggle Background Melody" title="Peace Melody Toggle">
+          <span class="music-icon" id="musicIcon">🎵</span>
+          <span class="music-label">Lofi Melody</span>
+        </button>
       </div>
     </div>
+  </header>
 
-    <!-- Main Navigation Header -->
-    <header class="app-header">
-      <button class="nav-btn" id="profileNavBtn" title="Our Love Story Profile" aria-label="Profile">
-        <div class="nav-avatar-wrap">
-          <img src="images/avatar_her.jpg" alt="Profile" class="nav-avatar-img" id="navAvatarImg">
-          <span class="nav-badge-ring"></span>
+  <!-- Main Container -->
+  <main class="page-container">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-card">
+        <div class="hero-avatar-wrapper">
+          <div class="avatar-ring pulse-ring"></div>
+          <div class="avatar-container">
+            <img src="images/avatar_him.jpg" alt="Veer Nagda" class="hero-avatar-img">
+            <span class="avatar-badge-tag">Certified Dummy 🤕</span>
+          </div>
+          <div class="sad-tears-left">💧</div>
+          <div class="sad-tears-right">💧</div>
         </div>
-      </button>
 
-      <div class="header-logo-group">
-        <div class="bumble-logo">bumble</div>
-        <span class="anniversary-pill">
-          <span class="honey-icon">🍯</span> 365 DAYS
-        </span>
+        <div class="hero-header-text">
+          <span class="apology-label">From Veer to His Favorite Person in the Universe</span>
+          <h1 class="hero-title">I Am Truly, Deeply Sorry, <span class="highlight-name">Kavya</span> 🥺</h1>
+          <p class="hero-subtitle">
+            I messed up really, really badly. I was thoughtless, stupid, and I feel like the most awful, horrible person in the world for hurting you.
+          </p>
+        </div>
+
+        <div class="hero-status-pill">
+          <span class="pill-icon">💔</span>
+          <span class="pill-text"><strong>Veer's Status:</strong> Broken-hearted, full of regret &amp; pleading for mercy</span>
+        </div>
+
+        <div class="hero-action-buttons">
+          <a href="#smack-zone" class="btn btn-punch">
+            <span class="btn-icon">🥊</span>
+            <span>Punch &amp; Smack Me First</span>
+          </a>
+          <a href="#letter-zone" class="btn btn-letter">
+            <span class="btn-icon">💌</span>
+            <span>Read My Confession</span>
+          </a>
+        </div>
       </div>
+    </section>
 
-      <div class="header-actions">
-        <button class="nav-btn music-btn" id="musicToggleBtn" title="Toggle Romantic Music" aria-label="Music">
-          <span class="music-icon" id="musicIcon">🎵</span>
-          <span class="sound-wave" id="soundWave">
-            <span></span><span></span><span></span>
-          </span>
-        </button>
+    <!-- SECTION 1: SMACK VEER INTERACTIVE RAGE ROOM -->
+    <section class="section smack-section" id="smack-zone">
+      <div class="section-card smack-card">
+        <div class="section-badge">
+          <span>Release The Anger Zone ⚡</span>
+        </div>
+        <h2 class="section-title">Kavya's Official Rage Room 🥊</h2>
+        <p class="section-desc">
+          You have <strong>every right to be furious with me</strong>. Don't bottle it up! Pick your weapon and smack me as hard as you want. I deserve every single hit!
+        </p>
 
-        <button class="nav-btn chat-nav-btn" id="chatNavBtn" title="Bumble Messages" aria-label="Chat">
-          <svg class="nav-svg-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
-          </svg>
-          <span class="unread-dot" id="unreadBadge">1</span>
-        </button>
+        <!-- Stats Bar -->
+        <div class="meters-container">
+          <div class="meter-block">
+            <div class="meter-header">
+              <span class="meter-name">🔥 Kavya's Rage Meter</span>
+              <span class="meter-val" id="rageVal">100%</span>
+            </div>
+            <div class="meter-track">
+              <div class="meter-fill rage-fill" id="rageFill" style="width: 100%;"></div>
+            </div>
+          </div>
+
+          <div class="meter-block">
+            <div class="meter-header">
+              <span class="meter-name">💖 Forgiveness Probability</span>
+              <span class="meter-val" id="forgiveVal">0%</span>
+            </div>
+            <div class="meter-track">
+              <div class="meter-fill forgive-fill" id="forgiveFill" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Weapon Arsenal Selector -->
+        <div class="weapon-selector-wrap">
+          <span class="weapon-label">Choose Your Weapon of Justice:</span>
+          <div class="weapon-grid" id="weaponGrid">
+            <button class="weapon-btn active" data-weapon="punch" title="Boxing Punch">
+              <span class="weapon-emoji">🥊</span>
+              <span class="weapon-title">Punch</span>
+              <span class="weapon-sfx">POW!</span>
+            </button>
+            <button class="weapon-btn" data-weapon="chappal" title="Flying Chappal">
+              <span class="weapon-emoji">🩴</span>
+              <span class="weapon-title">Chappal</span>
+              <span class="weapon-sfx">THWACK!</span>
+            </button>
+            <button class="weapon-btn" data-weapon="tomato" title="Juicy Tomato">
+              <span class="weapon-emoji">🍅</span>
+              <span class="weapon-title">Tomato</span>
+              <span class="weapon-sfx">SPLAT!</span>
+            </button>
+            <button class="weapon-btn" data-weapon="zap" title="Lightning Zap">
+              <span class="weapon-emoji">⚡</span>
+              <span class="weapon-title">Lightning</span>
+              <span class="weapon-sfx">BZZZT!</span>
+            </button>
+            <button class="weapon-btn" data-weapon="pillow" title="Pillow Smack">
+              <span class="weapon-emoji">🧸</span>
+              <span class="weapon-title">Pillow</span>
+              <span class="weapon-sfx">POOF!</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Punching Dummy Arena -->
+        <div class="punch-arena" id="punchArena">
+          <div class="punch-dialogue" id="punchDialogue">
+            "Go ahead, hit me Kavya! I deserve it so much 🥺"
+          </div>
+
+          <div class="punch-target-wrapper" id="punchTarget">
+            <div class="punch-target" id="punchAvatar">
+              <img src="images/avatar_him.jpg" alt="Smack Veer" class="target-img" id="targetImg">
+              <div class="bandage-overlay" id="bandageOverlay"></div>
+              <div class="splat-overlay" id="splatOverlay"></div>
+              <div class="dizzy-stars" id="dizzyStars">💫 ⭐ 💫</div>
+            </div>
+            <div class="click-hint-pill">👉 Tap/Click to Smack Veer! 👈</div>
+          </div>
+
+          <!-- Smacks Counter -->
+          <div class="smacks-counter-badge">
+            <span class="counter-icon">💥</span>
+            <span>Total Hits Delivered by Kavya: <strong id="hitCount">0</strong></span>
+          </div>
+
+          <!-- Cooldown or Finished Notice -->
+          <div class="exhausted-notice" id="exhaustedNotice" style="display: none;">
+            <div class="exhausted-content">
+              <span class="notice-icon">🩹</span>
+              <h4>Veer is thoroughly beaten up &amp; ready to beg for mercy!</h4>
+              <p>Are you feeling even 1% lighter? Please scroll down to read what I need to say to you...</p>
+              <a href="#letter-zone" class="btn btn-letter-small">Take Me to the Apology Letter 💌</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <!-- Main Card Deck Swiping Area -->
-    <main class="deck-container" id="deckContainer">
-      <!-- Story / Deck Progress Dots at top of current card -->
-      <div class="deck-progress-indicators" id="deckProgress">
-        <!-- Rendered dynamically for 5 cards -->
+    <!-- SECTION 2: SINCERE LETTER & CONFESSION -->
+    <section class="section letter-section" id="letter-zone">
+      <div class="section-card letter-card">
+        <div class="section-badge">
+          <span>Straight From My Heart 💌</span>
+        </div>
+        <h2 class="section-title">A Letter to My Kavya 🥺</h2>
+        <div class="letter-paper">
+          <div class="paper-pin">📌</div>
+          <p class="letter-salutation">My Dearest Kavya,</p>
+          
+          <p class="letter-paragraph">
+            I don’t know where to start, except to say that <strong>I am so, so deeply sorry</strong>. 
+            I acted foolishly, thoughtlessly, and without understanding the pain it would cause you. 
+            Knowing that I am the reason you felt hurt, upset, or disappointed makes me feel like the most awful, horrible person in the entire world.
+          </p>
+
+          <p class="letter-paragraph">
+            You are the sweetest, kindest, and most special person in my life. You have given me nothing but love, warmth, and joy, and my job as someone who cares about you with all his heart is to protect your peace, make you laugh, and make you feel treasured every single second. 
+            Instead, I was an idiot and I hurt you. There is absolutely <strong>no excuse for my behavior</strong>.
+          </p>
+
+          <div class="letter-callout">
+            <span class="callout-quote">“</span>
+            <p>
+              I promise you from the deepest depths of my soul: <strong>I will never do it again. I will never hurt you again.</strong> 
+              I am taking full accountability. I will listen better, think deeper, and ensure that your sweet smile is never replaced by sadness because of me.
+            </p>
+          </div>
+
+          <p class="letter-paragraph">
+            You mean everything to me, Kavya. A world where you are upset with me is dark, empty, and cold. I don’t take your forgiveness for granted, and I know trust is earned back step by step. I am ready to do whatever it takes to make you feel loved, respected, and safe with me again.
+          </p>
+
+          <div class="letter-signoff">
+            <p>Forever your biggest dummy &amp; biggest admirer,</p>
+            <h3 class="letter-signature">Veer ❤️</h3>
+            <span class="sign-date">Written with 1000% sincerity &amp; remorse</span>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Card Stack Canvas -->
-      <div class="card-stack" id="cardStack">
-        <!-- Dynamic Cards inserted here via script.js -->
+    <!-- SECTION 3: WHY VEER WAS A COMPLETE FOOL -->
+    <section class="section why-fool-section">
+      <div class="section-card">
+        <div class="section-badge">
+          <span>Zero Excuses 🧠</span>
+        </div>
+        <h2 class="section-title">Official Diagnosis: Why Veer is an Idiot 🤦‍♂️</h2>
+        <p class="section-desc">Here is the detailed medical breakdown of how foolish Veer was:</p>
+
+        <div class="confession-grid">
+          <div class="confession-box">
+            <div class="box-icon">🧠❌</div>
+            <h3>Brain Function: 0%</h3>
+            <p>All logical faculties temporarily exited my brain. I did not pause to consider your feelings, which is completely inexcusable.</p>
+          </div>
+
+          <div class="confession-box">
+            <div class="box-icon">💔🥺</div>
+            <h3>100% Remorse</h3>
+            <p>Seeing you upset literally makes my stomach drop and my chest ache. I hate being the cause of your distress.</p>
+          </div>
+
+          <div class="confession-box">
+            <div class="box-icon">🛡️🤝</div>
+            <h3>The Sacred Oath</h3>
+            <p>I swear on everything I hold dear: <strong>I will never repeat this mistake</strong>. I will never hurt you again, ever.</p>
+          </div>
+
+          <div class="confession-box">
+            <div class="box-icon">👑🌸</div>
+            <h3>Princess Priority</h3>
+            <p>You deserve gentle patience, spoiling, endless sweet snacks, and unwavering love. That is the standard from now on.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Playful Bumble Toast Banner -->
-      <div class="bumble-toast" id="bumbleToast">
-        <span class="toast-icon">⚠️</span>
-        <span class="toast-message" id="toastMessage">Unmatching disabled! You're stuck with me forever 🥰</span>
+    <!-- SECTION 4: PEACE OFFERING VOUCHERS -->
+    <section class="section vouchers-section" id="vouchers-zone">
+      <div class="section-card">
+        <div class="section-badge">
+          <span>Compensation Package 🎟️</span>
+        </div>
+        <h2 class="section-title">Kavya's Peace Offering Vouchers 🎁</h2>
+        <p class="section-desc">
+          Click any voucher to redeem it! All vouchers are legally binding and guaranteed by Veer with zero expiration dates.
+        </p>
+
+        <div class="vouchers-grid">
+          
+          <!-- Voucher 1 -->
+          <div class="voucher-card" data-voucher-id="1">
+            <div class="voucher-stamp" id="stamp-1">CLAIMED ✨</div>
+            <div class="voucher-header">
+              <span class="voucher-icon">🧋</span>
+              <span class="voucher-tag">LIFETIME VALIDITY</span>
+            </div>
+            <h3 class="voucher-title">Emergency Boba / Dessert Delivery</h3>
+            <p class="voucher-desc">Veer will immediately buy &amp; deliver your favorite boba, ice cream, or waffles on demand, no questions asked.</p>
+            <button class="voucher-claim-btn" onclick="claimVoucher(1)">
+              <span>Claim This Coupon 💌</span>
+            </button>
+          </div>
+
+          <!-- Voucher 2 -->
+          <div class="voucher-card" data-voucher-id="2">
+            <div class="voucher-stamp" id="stamp-2">CLAIMED ✨</div>
+            <div class="voucher-header">
+              <span class="voucher-icon">💆‍♀️</span>
+              <span class="voucher-tag">ZERO COMPLAINTS</span>
+            </div>
+            <h3 class="voucher-title">30-Min Head &amp; Back Massage</h3>
+            <p class="voucher-desc">Relaxation session until you fall asleep peacefully. Veer's hands will not stop until you say stop.</p>
+            <button class="voucher-claim-btn" onclick="claimVoucher(2)">
+              <span>Claim This Coupon 💌</span>
+            </button>
+          </div>
+
+          <!-- Voucher 3 -->
+          <div class="voucher-card" data-voucher-id="3">
+            <div class="voucher-stamp" id="stamp-3">CLAIMED ✨</div>
+            <div class="voucher-header">
+              <span class="voucher-icon">🍕</span>
+              <span class="voucher-tag">ALL EXPENSES PAID</span>
+            </div>
+            <h3 class="voucher-title">Dinner of Your Dreams</h3>
+            <p class="voucher-desc">Kavya chooses the restaurant, Veer pays the entire bill, and Veer listens attentively to everything you want to share.</p>
+            <button class="voucher-claim-btn" onclick="claimVoucher(3)">
+              <span>Claim This Coupon 💌</span>
+            </button>
+          </div>
+
+          <!-- Voucher 4 -->
+          <div class="voucher-card" data-voucher-id="4">
+            <div class="voucher-stamp" id="stamp-4">CLAIMED ✨</div>
+            <div class="voucher-header">
+              <span class="voucher-icon">🤐</span>
+              <span class="voucher-tag">INSTANT WIN</span>
+            </div>
+            <h3 class="voucher-title">"Veer Admits He's 100% Wrong" Card</h3>
+            <p class="voucher-desc">Play this in any disagreement: Veer instantly yields, apologizes, and admits you were right all along.</p>
+            <button class="voucher-claim-btn" onclick="claimVoucher(4)">
+              <span>Claim This Coupon 💌</span>
+            </button>
+          </div>
+
+          <!-- Voucher 5 -->
+          <div class="voucher-card" data-voucher-id="5">
+            <div class="voucher-stamp" id="stamp-5">CLAIMED ✨</div>
+            <div class="voucher-header">
+              <span class="voucher-icon">🫂</span>
+              <span class="voucher-tag">UNLIMITED SUPPLY</span>
+            </div>
+            <h3 class="voucher-title">1,000 Extra Long Tight Hugs</h3>
+            <p class="voucher-desc">The warmest, coziest, longest bear hugs whenever you feel low, tired, or need comfort.</p>
+            <button class="voucher-claim-btn" onclick="claimVoucher(5)">
+              <span>Claim This Coupon 💌</span>
+            </button>
+          </div>
+
+          <!-- Voucher 6 -->
+          <div class="voucher-card" data-voucher-id="6">
+            <div class="voucher-stamp" id="stamp-6">CLAIMED ✨</div>
+            <div class="voucher-header">
+              <span class="voucher-icon">🛍️</span>
+              <span class="voucher-tag">SPOIL KAVYA PASS</span>
+            </div>
+            <h3 class="voucher-title">Guilt-Free Retail Therapy</h3>
+            <p class="voucher-desc">Veer carries all shopping bags, buys treats, and hypes you up like your #1 personal fan club.</p>
+            <button class="voucher-claim-btn" onclick="claimVoucher(6)">
+              <span>Claim This Coupon 💌</span>
+            </button>
+          </div>
+
+        </div>
       </div>
-    </main>
+    </section>
 
-    <!-- Bottom Action Controls (Bumble Dock) -->
-    <footer class="app-dock">
-      <!-- Rewind Button -->
-      <button class="action-btn btn-rewind" id="btnRewind" title="Rewind previous card" aria-label="Rewind">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M1 4v6h6"></path>
-          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-        </svg>
-      </button>
+    <!-- SECTION 5: SWEET MEMORIES REMINDER -->
+    <section class="section memories-section">
+      <div class="section-card">
+        <div class="section-badge">
+          <span>What We Are Fighting For 💖</span>
+        </div>
+        <h2 class="section-title">The Smiles I Promise to Protect Forever 📸</h2>
+        <p class="section-desc">
+          I never want to see you cry or hurt because of me. Here are the moments that remind me why you are the best thing that ever happened to me:
+        </p>
 
-      <!-- Pass / Nope Button (Playful) -->
-      <button class="action-btn btn-pass" id="btnPass" title="Swipe Left (Try if you dare!)" aria-label="Pass">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
+        <div class="memories-scroller">
+          <div class="memory-polaroid">
+            <div class="polaroid-img-wrap">
+              <img src="images/1_cuddle.jpg" alt="Our cuddles" loading="lazy">
+            </div>
+            <div class="polaroid-caption">My happiest and safest place 🫂</div>
+          </div>
 
-      <!-- SuperSwipe Button -->
-      <button class="action-btn btn-superswipe" id="btnSuperSwipe" title="SuperSwipe ⭐️" aria-label="SuperSwipe">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-        </svg>
-      </button>
+          <div class="memory-polaroid">
+            <div class="polaroid-img-wrap">
+              <img src="images/4_datenight.jpg" alt="Date night" loading="lazy">
+            </div>
+            <div class="polaroid-caption">That smile I never want to dim ✨</div>
+          </div>
 
-      <!-- Like / Swipe Right Button -->
-      <button class="action-btn btn-like" id="btnLike" title="Swipe Right 💛" aria-label="Like">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </svg>
-      </button>
+          <div class="memory-polaroid">
+            <div class="polaroid-img-wrap">
+              <img src="images/8_sushi_date.jpg" alt="Food date" loading="lazy">
+            </div>
+            <div class="polaroid-caption">Feeding my favorite girl sushi 🍣</div>
+          </div>
 
-      <!-- Compliment Button -->
-      <button class="action-btn btn-compliment" id="btnCompliment" title="Send Compliment 💬" aria-label="Compliment">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM17 11h-4v4h-2v-4H7V9h4V5h2v4h4v2z"/>
-        </svg>
-      </button>
+          <div class="memory-polaroid">
+            <div class="polaroid-img-wrap">
+              <img src="images/13_sunset_view.jpg" alt="Sunset view" loading="lazy">
+            </div>
+            <div class="polaroid-caption">Every sunset is better with you 🌅</div>
+          </div>
+
+          <div class="memory-polaroid">
+            <div class="polaroid-img-wrap">
+              <img src="images/3_photobooth.jpg" alt="Photobooth fun" loading="lazy">
+            </div>
+            <div class="polaroid-caption">Us at our goofiest &amp; happiest 📸</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: THE FINAL VERDICT (DO YOU FORGIVE ME?) -->
+    <section class="section verdict-section" id="verdict-zone">
+      <div class="section-card verdict-card">
+        <div class="verdict-badge">
+          <span>The Moment of Truth 🥺👉👈</span>
+        </div>
+        
+        <div class="verdict-avatar-duo">
+          <div class="duo-avatar her">
+            <img src="images/avatar_her.jpg" alt="Kavya" class="duo-img">
+            <span class="duo-label">The Queen 👑</span>
+          </div>
+          <div class="duo-heart-bridge">
+            <span class="duo-heart">❤️</span>
+          </div>
+          <div class="duo-avatar him">
+            <img src="images/avatar_him.jpg" alt="Veer" class="duo-img">
+            <span class="duo-label">The Apologetic Dummy 🤕</span>
+          </div>
+        </div>
+
+        <h2 class="verdict-title">Kavya... Will You Forgive Me? 🥺</h2>
+        <p class="verdict-desc">
+          I promise on my life I will never hurt you again. I am so sorry. Will you give this fool one more chance to make you smile?
+        </p>
+
+        <!-- Interactive Decision Buttons Area -->
+        <div class="verdict-button-stage" id="buttonStage">
+          <!-- The YES Button -->
+          <button class="verdict-btn btn-yes" id="yesBtn">
+            <span class="btn-heart-beat">💖</span>
+            <span class="btn-text">YES, I Forgive You (This Once) ❤️</span>
+            <span class="btn-subtext">Click to spare Veer's life</span>
+          </button>
+
+          <!-- The Runaway NO Button -->
+          <button class="verdict-btn btn-no" id="noBtn">
+            <span class="btn-text" id="noBtnText">NO, Stay in the Doghouse 😤</span>
+          </button>
+        </div>
+
+        <div class="no-warning-text" id="noWarningText">
+          (Careful... the "NO" button is extremely scared of you!)
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+      <p class="footer-note">Handcrafted with boundless love, deep regret, and utmost devotion for Kavya 💖</p>
+      <div class="footer-links">
+        <a href="anniversary.html" class="footer-link">🍯 Our 1-Year Bumble Story</a>
+        <span class="footer-dot">•</span>
+        <button class="footer-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">⬆️ Back to Top</button>
+      </div>
     </footer>
 
-    <!-- Personalize Floating Settings Button -->
-    <button class="settings-trigger-btn" id="settingsTriggerBtn" title="Customize Names & Date">
-      ⚙️
-    </button>
-  </div>
+  </main>
 
-  <!-- ================= MODALS & OVERLAYS ================= -->
-
-  <!-- 1. "IT'S A MATCH!" Celebration Screen Modal -->
-  <div class="match-overlay" id="matchModal">
-    <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
-    
-    <div class="match-content">
-      <div class="match-header">
-        <div class="match-bumble-badge">🐝 BUMBLE ANNIVERSARY MATCH</div>
-        <h1 class="match-title">It's a Match!</h1>
-        <p class="match-subtitle">You and <span class="partner-name">Veer</span> swiped right 365 days ago</p>
-      </div>
-
-      <!-- Overlapping Profile Avatars -->
-      <div class="match-avatars-wrap">
-        <div class="match-avatar-circle left-avatar">
-          <img src="images/avatar_her.jpg" alt="Her" id="matchAvatarHer">
-          <span class="avatar-tag her-tag">You 💛</span>
-        </div>
-        
-        <div class="match-heart-center">
-          <div class="heart-pulse-glow"></div>
-          <span class="center-heart-icon">💖</span>
-          <span class="center-year-text">1 YEAR</span>
-        </div>
-
-        <div class="match-avatar-circle right-avatar">
-          <img src="images/avatar_him.jpg" alt="Veer" id="matchAvatarHim">
-          <span class="avatar-tag him-tag">Veer ✨</span>
-        </div>
-      </div>
-
-      <!-- Relationship Milestones Grid -->
-      <div class="match-stats-card">
-        <div class="stat-item">
-          <span class="stat-number">365</span>
-          <span class="stat-label">Days In Love</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number">100%</span>
-          <span class="stat-label">Compatibility</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number">∞</span>
-          <span class="stat-label">Forever To Go</span>
-        </div>
-      </div>
-
-      <!-- Match Action Buttons -->
-      <div class="match-action-buttons">
-        <button class="match-primary-btn" id="openLoveLetterBtn">
-          <span>💌 Read My Love Letter</span>
-        </button>
-
-        <button class="match-secondary-btn" id="openChatFromMatchBtn">
-          <span>💬 Open Our Bumble Chat</span>
-        </button>
-
-        <button class="match-gallery-btn" id="openGalleryFromMatchBtn">
-          <span>📸 View All 13 Memories</span>
-        </button>
-
-        <button class="match-text-btn" id="replayDeckBtn">
-          <span>🔄 Swipe Memories Again</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2. Heartfelt Love Letter Modal -->
-  <div class="popup-modal" id="loveLetterModal">
-    <div class="modal-backdrop" id="letterBackdrop"></div>
-    <div class="modal-card letter-card">
-      <button class="modal-close-btn" id="closeLetterBtn">&times;</button>
+  <!-- CELEBRATION MODAL (POPUP ON YES) -->
+  <div class="modal-backdrop" id="celebrationModal" style="display: none;">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close">✕</button>
       
-      <div class="letter-stamp-seal">
-        <span class="wax-seal">🐝</span>
-        <div class="postmark">BUMBLE • 365 DAYS TOGETHER</div>
+      <div class="modal-celebrate-header">
+        <div class="modal-icon-bounce">🎉💖🌸</div>
+        <span class="modal-tag">Official Presidential Pardon</span>
+        <h2 class="modal-title">SHE SAID YES! I AM FORGIVEN! 😭❤️</h2>
+        <p class="modal-subtitle">The clouds have parted, the birds are singing, and Veer's life has meaning again!</p>
       </div>
 
-      <div class="letter-body">
-        <h2 class="letter-heading">To My Favorite Girl In The World,</h2>
-        
-        <div class="letter-text" id="letterContent">
-          <p>Exactly 365 days ago, you popped up on my Bumble feed. I swiped right without a second thought, but I had no idea that one simple swipe was about to change my entire universe.</p>
-          
-          <p>From your very first message to all the endless late-night talks, lazy Sunday cuddles, swimming dates, silly photobooth kiss strips, and goofy cab selfies—every moment with you has felt like a dream I never want to wake up from.</p>
-          
-          <p>Thank you for making the first move. Thank you for filling my life with your infectious laughter, your kindness, your warmth, and your unconditional love. You make every ordinary day feel like the sweetest adventure.</p>
-          
-          <p>If Bumble gave me another 1,000 profiles, I’d still search for you in every single one. Here's to 365 unforgettable days, and to a lifetime more of loving you.</p>
-          
-          <p class="letter-signature">Forever & always yours,<br><span class="author-name">Veer</span> 💛</p>
-        </div>
-      </div>
-
-      <div class="letter-footer">
-        <button class="bumble-pill-btn" id="btnShareKiss">Send Her A Kiss 💋</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3. Authentic Bumble Chat Modal -->
-  <div class="popup-modal" id="chatModal">
-    <div class="modal-backdrop" id="chatBackdrop"></div>
-    <div class="modal-card chat-card">
-      <!-- Chat Header -->
-      <div class="chat-header">
-        <button class="chat-back-btn" id="closeChatBtn">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-          </svg>
-        </button>
-        <div class="chat-user-info">
-          <div class="chat-avatar-wrap">
-            <img src="images/avatar_him.jpg" alt="Veer" class="chat-avatar">
-            <span class="online-indicator"></span>
+      <!-- Official Certificate -->
+      <div class="certificate-box">
+        <div class="cert-border">
+          <div class="cert-seal">🎖️</div>
+          <h4 class="cert-title">OFFICIAL CERTIFICATE OF FORGIVENESS</h4>
+          <p class="cert-body">
+            This document certifies that <strong>Kavya</strong> has officially granted clemency to <strong>Veer Nagda</strong> for his severe lack of brain cells.
+          </p>
+          <div class="cert-terms">
+            <span><strong>Terms &amp; Conditions:</strong></span>
+            <ul>
+              <li>Veer must give 100 extra cuddles daily.</li>
+              <li>Veer shall never hurt Kavya ever again.</li>
+              <li>Veer must fulfill all claimed peace vouchers immediately.</li>
+            </ul>
           </div>
-          <div>
-            <div class="chat-user-name">Veer <span class="verified-check">✓</span></div>
-            <div class="chat-user-status">Active now • 365 Days Matched</div>
-          </div>
-        </div>
-        <button class="chat-call-btn" id="chatCallBtn" title="Call Him">📞</button>
-      </div>
-
-      <!-- Bumble First Move Banner -->
-      <div class="chat-first-move-box">
-        <span class="bee-badge">🐝</span>
-        <span>You made the first move on Bumble 1 year ago! It was the best message he ever received.</span>
-      </div>
-
-      <!-- Chat Messages Scroll Area -->
-      <div class="chat-messages-body" id="chatMessages">
-        <div class="chat-date-chip">365 Days Ago</div>
-        
-        <div class="message msg-received">
-          <div class="bubble">Hey stranger :) your smile caught my eye! ✨</div>
-          <span class="msg-time">Day 1</span>
-        </div>
-
-        <div class="message msg-sent">
-          <div class="bubble">And you just made my whole year! Best swipe ever 💛</div>
-          <span class="msg-time">Day 1</span>
-        </div>
-
-        <div class="chat-date-chip">Fast Forward To Today</div>
-
-        <div class="message msg-sent">
-          <div class="bubble">Happy 1-Year Anniversary my love! I still get butterflies every time you smile at me 🥺💕</div>
-          <span class="msg-time">Just now</span>
-        </div>
-
-        <div class="message msg-sent voice-note-msg">
-          <div class="bubble voice-bubble" id="voiceNoteBubble">
-            <button class="voice-play-btn" id="voicePlayBtn">▶</button>
-            <div class="voice-waveform">
-              <span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span><span class="v-bar"></span>
+          <div class="cert-signature-row">
+            <div class="cert-sig">
+              <span class="sig-line">Kavya 💖</span>
+              <span class="sig-role">Supreme Judge of the Universe</span>
             </div>
-            <span class="voice-duration">0:36</span>
+            <div class="cert-sig">
+              <span class="sig-line">Veer Nagda 🥺</span>
+              <span class="sig-role">Reformed Dummy on Probation</span>
+            </div>
           </div>
-          <span class="voice-label">Voice note: "I love you more than everything..."</span>
         </div>
       </div>
 
-      <!-- Chat Input Field -->
-      <div class="chat-input-bar">
-        <input type="text" id="chatInputField" placeholder="Reply to Veer..." autocomplete="off">
-        <button class="chat-send-btn" id="chatSendBtn" aria-label="Send Message">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-          </svg>
+      <!-- Action Buttons inside Modal -->
+      <div class="modal-actions">
+        <a href="#" class="btn btn-whatsapp" id="whatsappNotifyBtn" target="_blank" rel="noopener">
+          <span class="btn-icon">💬</span>
+          <span>Send Veer "I Forgive You" on WhatsApp</span>
+        </a>
+        <button class="btn btn-hug" id="virtualHugBtn">
+          <span class="btn-icon">🫂</span>
+          <span>Send Veer a Big Tight Hug!</span>
         </button>
       </div>
     </div>
   </div>
 
-  <!-- 4. Memory Gallery Modal -->
-  <div class="popup-modal" id="galleryModal">
-    <div class="modal-backdrop" id="galleryBackdrop"></div>
-    <div class="modal-card gallery-card">
-      <button class="modal-close-btn" id="closeGalleryBtn">&times;</button>
-      <div class="gallery-header">
-        <span class="gallery-badge">📸 OUR 1-YEAR HIGHLIGHT REEL</span>
-        <h2>Our 13 Favorite Bumble Memories</h2>
-        <p>13 moments that defined our year together</p>
-      </div>
+  <!-- Audio Context Elements (Fallback / Web Audio is primary) -->
+  <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
 
-      <div class="gallery-grid" id="galleryGrid">
-        <!-- Rendered dynamically -->
-      </div>
-    </div>
-  </div>
-
-  <!-- 5. Compliment Pop-up Modal -->
-  <div class="popup-modal" id="complimentModal">
-    <div class="modal-backdrop" id="complimentBackdrop"></div>
-    <div class="modal-card compliment-card">
-      <button class="modal-close-btn" id="closeComplimentBtn">&times;</button>
-      <div class="compliment-icon-bubble">💬💛</div>
-      <h3 class="compliment-title">Bumble Compliment</h3>
-      <p class="compliment-text" id="complimentText">"You look absolutely breathtaking in this picture, and even more so in person!"</p>
-      <button class="bumble-pill-btn" id="closeComplimentActionBtn">Aww, thank you! 🥰</button>
-    </div>
-  </div>
-
-  <!-- 6. Playful Rejection Alert (When she tries to swipe left) -->
-  <div class="rejection-dialog" id="rejectionDialog">
-    <div class="dialog-content">
-      <div class="dialog-emoji">🙅‍♂️🚫</div>
-      <h3 class="dialog-title">Bumble Protocol Alert!</h3>
-      <p class="dialog-desc" id="rejectionDesc">Swipe Left is permanently disabled! Once matched with Veer, you are bonded for eternity.</p>
-      <button class="dialog-confirm-btn" id="dialogAcceptBtn">Fine, I'll Swipe Right! ❤️</button>
-    </div>
-  </div>
-
-  <!-- 7. Personalize / Settings Modal (So Veer can customize names & letter) -->
-  <div class="popup-modal" id="settingsModal">
-    <div class="modal-backdrop" id="settingsBackdrop"></div>
-    <div class="modal-card settings-card">
-      <button class="modal-close-btn" id="closeSettingsBtn">&times;</button>
-      <div class="settings-header">
-        <span class="badge-icon">⚙️</span>
-        <h3>Personalize Your Website</h3>
-        <p>Customize her name, your anniversary date & message</p>
-      </div>
-
-      <form id="settingsForm" class="settings-form">
-        <div class="form-group">
-          <label for="cfgHerName">Her Name / Nickname</label>
-          <input type="text" id="cfgHerName" placeholder="e.g. Kashish, Khushi, Cutie..." required>
-        </div>
-
-        <div class="form-group">
-          <label for="cfgHisName">Your Name</label>
-          <input type="text" id="cfgHisName" value="Veer" required>
-        </div>
-
-        <div class="form-group">
-          <label for="cfgAnniversaryDate">Anniversary / Meet Date</label>
-          <input type="text" id="cfgAnniversaryDate" placeholder="e.g. September 28, 2023 or 1 Year Ago">
-        </div>
-
-        <div class="form-group">
-          <label for="cfgLetter">Love Letter Message</label>
-          <textarea id="cfgLetter" rows="5" placeholder="Write your heartfelt note here..."></textarea>
-        </div>
-
-        <button type="submit" class="bumble-pill-btn">Save & Update Website 💛</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Confetti library for high-performance celebration confetti -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
